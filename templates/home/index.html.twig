@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<div class="container-fluid p-0">
+		<img class="col-12" src="{{ asset('asset/img/bannerHome.png') }}">
+		{% include "header.html.twig" %}
+		<div class="container-fluid">
+			<div class="row mb-3">
+				<img class="col-6 p-3" src="{{ asset('asset/img/place.png') }}">
+				<div class="col-6 p-3">
+					<h1 class="text-center">La Ferme Des Bulldog Exotique</h1>
+					<p class="text-center">Trouvez des chiens à adopter dans la Loire !<br>
+						Adoptez le chien que vous désirez !<br>
+						Votre éleveuse assure un cadre idéal pour une croissance optimale de votre chien
+					</p>
+					<div class="row">
+						<div class="offset-2 col-5">
+							<p>
+								<i class="fas fa-paw"></i>
+								Un suivis journalier</p>
+							<p>
+								<i class="fas fa-warehouse"></i>
+								Un espace de vie propre</p>
+							<p>
+								<i class="fas fa-lock"></i>
+								De la sécurité</p>
+						</div>
+						<div class="col-5">
+							<p>
+								<i class="fas fa-dog"></i>
+								Une selection</p>
+							<p>
+								<i class="fas fa-bone"></i>
+								Une nourriture équilibré</p>
+							<p>
+								<i class="fas fa-heart"></i>
+								De l'amour</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row justify-content-around p-4 BGColor">
+				<div class="col-5">
+					<h2>La Ferme du Bulldog Exotique</h2>
+					<p>Sollicitant homines non sunt nisi quam formae rerum principiis opiniones. Mors enim est terribilis ut Socrati aliud esse apparet. Sed timor mortis est notio terribile. Cum igitur impediantur turbentur aut dolere videamus aliis non tribuunt nisi nobis hoc est, in principiis nostra.
+						<br>
+						<br>
+						Ponam in culpa idiota aliis pravitatis. Principium ponere culpam in se justum praeceptum. Neque improperes et aliis qui non perfecte ipse docuit.
+					</p>
+				</div>
+				<div class="row col-5">
+					<h2>L'Eleveur</h2>
+					<img class="col-4" src="{{ asset('asset/img/eleveur.png') }}">
+					<p class="col-8">Quod Enchiridion Epictetus stoici scripsit. Rodrigo Abela et Technologiae apud Massachusetts instituta Opera collectio. Ex anglicus latine translata sunt.
+						<br>
+						<br>
+						Quidam alii sunt, et non est in nostra potestate. Quae omnia in nostra sententia, pursuit, cupiditatem, aversatio,</p>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<div class="col-4 text-center">
+				<img src="{{ asset('asset/img/logo.png') }}" style="width:30%">
+			</div>
+			<div class="col-4 text-center">
+				<h3>CONTACT</h3>
+				<p class="text-center">La Ferme du Bulldog Exotique</p>
+				<p class="text-center">07.77.77.77.77</p>
+				<p class="text-center">contact@lafermedubulldogexotique.com</p>
+			</div>
+			<div class="col-4 text-center">
+				<h3>RESEAUX SOCIAUX</h3>
+				<i class="fab fa-facebook-square" style="font-size:500%"></i>
+				<i class="fab fa-instagram-square" style="font-size:500%"></i>
+				<i class="fab fa-twitter-square" style="font-size:500%"></i>
+			</div>
+		</div>
+	</div>
+	{% include "footer.html.twig" %}
+{% endblock %}

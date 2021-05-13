@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="container-fluid p-0">
+		<img class="col-12" src="{{ asset('asset/img/bannerHome.png') }}">
+		{% include "header.html.twig" %}
+	</div>
+
+	<div class="container-fluid">
+		<div class="row mb-3 justify-content-center">
+			<img class="col-5 p-3" src="{{ asset('asset/img/place.png') }}">
+			<div class="col-5 p-3">
+				<h1 class="text-center">Actualité n°1</h1>
+				<p class="text-center">Sollicitant homines non sunt nisi quam formae rerum principiis opiniones. Mors enim est terribilis ut Socrati aliud esse apparet. Sed timor mortis est notio terribile. Cum igitur impediantur turbentur aut dolere videamus aliis non tribuunt nisi nobis hoc est, in principiis nostra.Sollicitant homines non sunt nisi quam formae rerum principiis opiniones. Mors enim est terribilis ut Socrati aliud esse apparet. Sed timor mortis est notio terribile. Cum igitur impediantur turbentur aut dolere videamus aliis non tribuunt nisi nobis hoc est, in principiis nostra.Sollicitant homines non sunt nisi quam formae rerum principiis opiniones. Mors enim est terribilis ut Socrati aliud esse apparet. Sed timor mortis est notio terribile. Cum igitur impediantur turbentur aut dolere videamus aliis non tribuunt nisi nobis hoc est, in principiis nostra.
+				</p>
+			</div>
+			<div class="col-5 p-3">
+				<p class="text-center">Sollicitant homines non sunt nisi quam formae rerum principiis opiniones. Mors enim est terribilis ut Socrati aliud esse apparet. Sed timor mortis est notio terribile. Cum igitur impediantur turbentur aut dolere videamus aliis non tribuunt nisi nobis hoc est, in principiis nostra.Sollicitant homines non sunt nisi quam formae rerum principiis opiniones. Mors enim est terribilis ut Socrati aliud esse apparet. Sed timor mortis est notio terribile. Cum igitur impediantur turbentur aut dolere videamus aliis non tribuunt nisi nobis hoc est, in principiis nostra.Sollicitant homines non sunt nisi quam formae rerum principiis opiniones. Mors enim est terribilis ut Socrati aliud esse apparet. Sed timor mortis est notio terribile. Cum igitur impediantur turbentur aut dolere videamus aliis non tribuunt nisi nobis hoc est, in principiis nostra.
+				</p>
+			</div>
+			<img class="col-5 p-3" src="{{ asset('asset/img/place.png') }}">
+		</div>
+		<div class="d-flex justify-content-center offset-2 col-8">
+			<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+				<div class="carousel-indicators">
+					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				</div>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="{{ asset('asset/img/place.png') }}" class="d-block w-100" alt="...">
+						<div class="carousel-caption d-none d-md-block">
+							<h5 class="p-2" style="background-color:rgba(0, 0, 0,0.5)">Titre Actu 1</h5>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="{{ asset('asset/img/place.png') }}" class="d-block w-100" alt="...">
+						<div class="carousel-caption d-none d-md-block">
+							<h5 class="p-2" style="background-color:rgba(0, 0, 0,0.5)">Titre Actu 2</h5>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="{{ asset('asset/img/place.png') }}" class="d-block w-100" alt="...">
+						<div class="carousel-caption d-none d-md-block">
+							<h5 class="p-2" style="background-color:rgba(0, 0, 0,0.5)">Titre Actu 3</h5>
+						</div>
+					</div>
+				</div>
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+			</div>
+		</div>
+		{% include "footer.html.twig" %}
+	{% endblock %}

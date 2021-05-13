@@ -1,0 +1,172 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GoldenBookController!
+{% endblock %}
+
+{% block body %}
+	<div class="container-fluid p-0">
+		<img class="col-12" src="{{ asset('asset/img/bannerHome.png') }}">
+		{% include "header.html.twig" %}
+	</div>
+	<div class="container">
+		<div class="row justify-content-around">
+
+			<h2 class="m-4 text-center">Un grand MERCI pour vos retours tous aussi positif les uns que les autres !</h2>
+
+			<div class="col-4 BGColor p-4 mb-4" style="border-radius: 50px;">
+				<div class="row">
+					<div class="col-6">
+						<span style="font-weight:bold">Catherine Blanc-Poulet</span>
+						<p>Super accueil, très chaleureux. Poulpy est très mignon nous l'adorons !</p>
+					</div>
+					<div class="col-6">
+						<img class="col-12" style="border-radius: 200px;" src="{{ asset('asset/img/dog.png') }}">
+					</div>
+				</div>
+				<div class="stars">
+					<label class="rate">
+						<input type="radio" name="radio1" id="star1" value="star1">
+						<div class="face"></div>
+						<i class="far fa-star star one-star"></i>
+					</label>
+					<label class="rate">
+						<input type="radio" name="radio1" id="star2" value="star2">
+						<div class="face"></div>
+						<i class="far fa-star star two-star"></i>
+					</label>
+					<label class="rate">
+						<input type="radio" name="radio1" id="star3" value="star3">
+						<div class="face"></div>
+						<i class="far fa-star star three-star"></i>
+					</label>
+					<label class="rate">
+						<input type="radio" name="radio1" id="star4" value="star4">
+						<div class="face"></div>
+						<i class="far fa-star star four-star"></i>
+					</label>
+					<label class="rate">
+						<input type="radio" name="radio1" id="star5" value="star5">
+						<div class="face"></div>
+						<i class="far fa-star star five-star"></i>
+					</label>
+				</div>
+			</div>
+
+			<div class="col-4 BGColor p-4 mb-4" style="border-radius: 50px;">
+				<div class="row">
+					<div class="col-6">
+						<span style="font-weight:bold">Catherine Blanc-Poulet</span>
+						<p>Super accueil, très chaleureux. Poulpy est très mignon nous l'adorons !</p>
+					</div>
+					<div class="col-6">
+						<img class="col-12" style="border-radius: 200px;" src="{{ asset('asset/img/dog.png') }}">
+					</div>
+				</div>
+				<div class="stars">
+					<label class="rate">
+						<input type="radio" name="radio1" id="star1" value="star1">
+						<div class="face"></div>
+						<i class="far fa-star star one-star"></i>
+					</label>
+					<label class="rate">
+						<input type="radio" name="radio1" id="star2" value="star2">
+						<div class="face"></div>
+						<i class="far fa-star star two-star"></i>
+					</label>
+					<label class="rate">
+						<input type="radio" name="radio1" id="star3" value="star3">
+						<div class="face"></div>
+						<i class="far fa-star star three-star"></i>
+					</label>
+					<label class="rate">
+						<input type="radio" name="radio1" id="star4" value="star4">
+						<div class="face"></div>
+						<i class="far fa-star star four-star"></i>
+					</label>
+					<label class="rate">
+						<input type="radio" name="radio1" id="star5" value="star5">
+						<div class="face"></div>
+						<i class="far fa-star star five-star"></i>
+					</label>
+				</div>
+			</div>
+<hr>
+
+			<div class="col-12 BGColor p-4 my-4" style="border-radius: 50px;">
+				<div class="row">
+					<div class="col-6">
+						<label for="name" class="form-label">Nom :</label>
+						<input type="email" class="form-control" id="name">
+						<label for="LastName" class="form-label">Prénom :</label>
+						<input type="email" class="form-control" id="LastName">
+						<label for="exampleFormControlTextarea1" class="form-label">Commentaire</label>
+						<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+						<div class="mb-3">
+							<label for="formFile" class="form-label">Image de votre bulldog</label>
+							<input class="form-control" type="file" id="formFile">
+						</div>
+						<div class="stars">
+							<label class="rate">
+								<input type="radio" name="radio1" id="star1" value="star1">
+								<div class="face"></div>
+								<i class="far fa-star star one-star"></i>
+							</label>
+							<label class="rate">
+								<input type="radio" name="radio1" id="star2" value="star2">
+								<div class="face"></div>
+								<i class="far fa-star star two-star"></i>
+							</label>
+							<label class="rate">
+								<input type="radio" name="radio1" id="star3" value="star3">
+								<div class="face"></div>
+								<i class="far fa-star star three-star"></i>
+							</label>
+							<label class="rate">
+								<input type="radio" name="radio1" id="star4" value="star4">
+								<div class="face"></div>
+								<i class="far fa-star star four-star"></i>
+							</label>
+							<label class="rate">
+								<input type="radio" name="radio1" id="star5" value="star5">
+								<div class="face"></div>
+								<i class="far fa-star star five-star"></i>
+							</label>
+						</div>
+					</div>
+					<div class="col-6">
+						<img class="col-12" style="border-radius: 200px;" src="{{ asset('asset/img/dog.png') }}">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		$(function () {
+
+$(document).on({
+mouseover: function (event) {
+$(this).find('.far').addClass('star-over');
+$(this).prevAll().find('.far').addClass('star-over');
+},
+mouseleave: function (event) {
+$(this).find('.far').removeClass('star-over');
+$(this).prevAll().find('.far').removeClass('star-over');
+}
+}, '.rate');
+
+
+$(document).on('click', '.rate', function () {
+if (!$(this).find('.star').hasClass('rate-active')) {
+$(this).siblings().find('.star').addClass('far').removeClass('fas rate-active');
+$(this).find('.star').addClass('rate-active fas').removeClass('far star-over');
+$(this).prevAll().find('.star').addClass('fas').removeClass('far star-over');
+} else {
+console.log('has');
+}
+});
+
+});
+	</script>
+	{% include "footer.html.twig" %}
+{% endblock %}
