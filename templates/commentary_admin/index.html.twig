@@ -1,0 +1,66 @@
+{% extends 'baseAdmin.html.twig' %}
+
+
+{% block body %}
+	{% include "headerAdmin.html.twig" %}
+	<section class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12">
+					<div class="card">
+						<div class="card-header">
+							<h3 class="card-title">Liste des contenus</h3>
+						</div>
+						<!-- /.card-header -->
+						<div class="card-body p-0">
+							<div class="d-md-flex">
+								<table class="table table-hover text-nowrap">
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>Nom</th>
+											<th>Prénom</th>
+											<th>Commentaire</th>
+											<th>Photo</th>
+											<th>Note</th>
+											<th>Date</th>
+											<th>Affiché</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for commentary in commentaries %}
+											<tr>
+												<td>{{commentary.id}}</td>
+												<td>{{commentary.firstName|raw}}</td>
+												<td>{{commentary.LastName|raw}}</td>
+												<td>
+													<textarea>{{commentary.commentary|raw}}</textarea>
+												</td>
+												<td>{{commentary.commentaryPhoto}}</td>
+												<td>{{commentary.rate}}</td>
+												<td>{{commentary.createdat|date('d-m-y')}}</td>
+												<td>
+													<div class="form-check form-switch">
+														<form method="POST" action="{{ url('commentary_admin_valid', {'id':commentary.id}) }}" enctype="multipart/form-data">
+															{% if commentary.valid == 0 %}
+																<input id="valid" value="1" name="form[valid]" hidden>
+																<button class="btn btn-success" name="form[submit]" value="1">Activer</button>
+															{% else %}
+																<input id="valid" value="0" name="form[valid]" hidden>
+																<button class="btn btn-danger" name="form[submit]" value="1">Désactiver</button>
+															{% endif %}
+														</form>
+													</div>
+												</td>
+											</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

@@ -6,63 +6,43 @@
 		{% include "header.html.twig" %}
 	</div>
 	<div class="container">
-		<div class="row col-6 m-3">
-			<div class="col-2">
-				<p>Trier par :
-				</p>
+		<form method="POST" action="{{ asset('/findByCategory')}}" enctype="multipart/form-data">
+			<div class="row col-6 m-3">
+				<div class="col-5">
+					<label for="age">Race</label>
+					<select class="form-select" id="category" name="form[category]" aria-label="Default select example">
+						{% for category in categories %}
+							<option value="{{category.id}}">{{category.nameCategoryfr}}</option>
+						{% endfor %}
+					</select>
+				</div>
+				<div class="col-2 mt-4">
+					<button class="btn btn-success" name="form[submit]" value="1">Filtrer</button>
+				</div>
+				<div class="col-1 mt-4">
+					<button class="btn btn-outline-danger" href="{{ asset('/dogs')}}" name="form[submit]" value="0">X</button>
+				</div>
 			</div>
-			<div class="col-3">
-				<label for="sexe">Sexe</label>
-				<select class="form-select" id="sexe" aria-label="Default select example">
-					<option value="1">Mâle</option>
-					<option value="2">Femelle</option>
-				</select>
-			</div>
-			<div class="col-2">
-				<label for="age">Âge</label>
-				<input type="number" class="form-control" id="age">
-			</div>
-			<div class="col-3">
-				<label for="age">Race</label>
-				<select class="form-select" id="race" aria-label="Default select example">
-					<option value="1">Bulldog Anglais</option>
-					<option value="2">Two</option>
-					<option value="3">Three</option>
-				</select>
-			</div>
-		</div>
+		</form>
 	</div>
-
-	<div class="row justify-content-around">
-		<div class="card mx-5 my-2" style="width: 18rem;">
-			<img class="card-img-top" src="{{ asset('asset/img/dog.png') }}" alt="Card image cap">
-			<div class="card-body">
-				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			</div>
-		</div>
-		<div class="card mx-5 my-2" style="width: 18rem;">
-			<img class="card-img-top" src="{{ asset('asset/img/dog.png') }}" alt="Card image cap">
-			<div class="card-body">
-				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			</div>
-		</div>
-		<div class="card mx-5 my-2" style="width: 18rem;">
-			<img class="card-img-top" src="{{ asset('asset/img/dog.png') }}" alt="Card image cap">
-			<div class="card-body">
-				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			</div>
-		</div>
-		<div class="card mx-5 my-2" style="width: 18rem;">
-			<img class="card-img-top" src="{{ asset('asset/img/dog.png') }}" alt="Card image cap">
-			<div class="card-body">
-				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			</div>
-		</div>
-		<div class="card mx-5 my-2" style="width: 18rem;">
-			<img class="card-img-top" src="{{ asset('asset/img/dog.png') }}" alt="Card image cap">
-			<div class="card-body">
-				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			</div>
+	<div class="container">
+		<div class="row justify-content-around">
+			{% for dog in dogs %}
+				<div class="col-3 my-3">
+					<a href="{{ url('dogSingle', {'id':dog.id}) }}" style="color:black">
+						<div class="card" style="width: 18rem;">
+							<img src="{{ asset('asset/img/upload/'~ dog.photo) }}" class="card-img-top" style="height: 250px;">
+							<div class="card-body">
+								<h5 class="card-title">{{dog.name|raw}}</h5>
+								<span class="card-text">Sexe :
+									{{dog.sexfr|raw}}</span>
+								<p class="card-text">Catégorie :
+									{{dog.Category.nameCategoryfr|raw}}</p>
+							</div>
+						</div>
+					</a>
+				</div>
+			{% endfor %}
 		</div>
 	</div>
 	{% include "footer.html.twig" %}

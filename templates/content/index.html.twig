@@ -1,0 +1,71 @@
+{% extends 'baseAdmin.html.twig' %}
+
+
+{% block body %}
+	{% include "headerAdmin.html.twig" %}
+	<section class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12">
+					<div class="card">
+						<div class="card-header">
+							<h3 class="card-title">Liste des contenus</h3>
+						</div>
+						<!-- /.card-header -->
+						<div class="card-body p-0">
+							<div class="d-md-flex">
+								<table class="table table-hover text-nowrap">
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>Titre Français</th>
+											<th>Titre Anglais</th>
+											<th>Texte en Français</th>
+											<th>Texte en Anglais</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for content in contents %}
+											<form method="POST" action="{{ url('content_edit', {'id':content.id}) }}" enctype="multipart/form-data">
+												<tr>
+													<td>{{ content.id}}
+													</td>
+													<td><input id="titleFr" name="form[titleFr]" type="text" class="form-control" id="exampleFormControlInput1" value="{{ content.titleFr}}"></td>
+													<td><input id="titleEn" name="form[titleEn]" type="text" class="form-control" id="exampleFormControlInput1" value="{{ content.titleEn}}"></td>
+													<td>
+														<textarea id="textFr" name="form[textFr]" id="mytextarea" name="mytextarea">
+															{{ content.textFr}}
+														</textarea>
+													</td>
+													<td>
+														<textarea id="textEn" name="form[textEn]" id="mytextarea" name="mytextarea">
+															{{ content.textEn}}</textarea>
+													</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td class="text-end">Nom du fichier précédent:</td>
+													<td>{{ content.imgFile}}</td>
+													<td>
+														<div class="custom-file">
+															<input type="file" class="custom-file-input form-control" id="file" name="file">
+														</div>
+													</td>
+													<td>
+														<div class="form-group text-right mb-2">
+															<button class="btn btn-success" name="form[submit]" value='1'>Modifier</button>
+														</div>
+													</td>
+												</tr>
+											</form>
+										{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

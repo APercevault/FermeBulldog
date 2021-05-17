@@ -3,7 +3,11 @@
 }
 
 .BGColor {
-    background-color: rgb(229, 213, 184)
+    background-color: rgb(229, 213, 184) !important
+}
+
+a {
+    text-decoration: none;
 }
 
 .stars {

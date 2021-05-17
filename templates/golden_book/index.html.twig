@@ -12,161 +12,118 @@
 		<div class="row justify-content-around">
 
 			<h2 class="m-4 text-center">Un grand MERCI pour vos retours tous aussi positif les uns que les autres !</h2>
+			{% for commentary in commentaries %}
 
-			<div class="col-4 BGColor p-4 mb-4" style="border-radius: 50px;">
-				<div class="row">
-					<div class="col-6">
-						<span style="font-weight:bold">Catherine Blanc-Poulet</span>
-						<p>Super accueil, très chaleureux. Poulpy est très mignon nous l'adorons !</p>
-					</div>
-					<div class="col-6">
-						<img class="col-12" style="border-radius: 200px;" src="{{ asset('asset/img/dog.png') }}">
-					</div>
-				</div>
-				<div class="stars">
-					<label class="rate">
-						<input type="radio" name="radio1" id="star1" value="star1">
-						<div class="face"></div>
-						<i class="far fa-star star one-star"></i>
-					</label>
-					<label class="rate">
-						<input type="radio" name="radio1" id="star2" value="star2">
-						<div class="face"></div>
-						<i class="far fa-star star two-star"></i>
-					</label>
-					<label class="rate">
-						<input type="radio" name="radio1" id="star3" value="star3">
-						<div class="face"></div>
-						<i class="far fa-star star three-star"></i>
-					</label>
-					<label class="rate">
-						<input type="radio" name="radio1" id="star4" value="star4">
-						<div class="face"></div>
-						<i class="far fa-star star four-star"></i>
-					</label>
-					<label class="rate">
-						<input type="radio" name="radio1" id="star5" value="star5">
-						<div class="face"></div>
-						<i class="far fa-star star five-star"></i>
-					</label>
-				</div>
-			</div>
+				{% if commentary.valid == 1 %}
 
-			<div class="col-4 BGColor p-4 mb-4" style="border-radius: 50px;">
-				<div class="row">
-					<div class="col-6">
-						<span style="font-weight:bold">Catherine Blanc-Poulet</span>
-						<p>Super accueil, très chaleureux. Poulpy est très mignon nous l'adorons !</p>
-					</div>
-					<div class="col-6">
-						<img class="col-12" style="border-radius: 200px;" src="{{ asset('asset/img/dog.png') }}">
-					</div>
-				</div>
-				<div class="stars">
-					<label class="rate">
-						<input type="radio" name="radio1" id="star1" value="star1">
-						<div class="face"></div>
-						<i class="far fa-star star one-star"></i>
-					</label>
-					<label class="rate">
-						<input type="radio" name="radio1" id="star2" value="star2">
-						<div class="face"></div>
-						<i class="far fa-star star two-star"></i>
-					</label>
-					<label class="rate">
-						<input type="radio" name="radio1" id="star3" value="star3">
-						<div class="face"></div>
-						<i class="far fa-star star three-star"></i>
-					</label>
-					<label class="rate">
-						<input type="radio" name="radio1" id="star4" value="star4">
-						<div class="face"></div>
-						<i class="far fa-star star four-star"></i>
-					</label>
-					<label class="rate">
-						<input type="radio" name="radio1" id="star5" value="star5">
-						<div class="face"></div>
-						<i class="far fa-star star five-star"></i>
-					</label>
-				</div>
-			</div>
-<hr>
-
-			<div class="col-12 BGColor p-4 my-4" style="border-radius: 50px;">
-				<div class="row">
-					<div class="col-6">
-						<label for="name" class="form-label">Nom :</label>
-						<input type="email" class="form-control" id="name">
-						<label for="LastName" class="form-label">Prénom :</label>
-						<input type="email" class="form-control" id="LastName">
-						<label for="exampleFormControlTextarea1" class="form-label">Commentaire</label>
-						<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-						<div class="mb-3">
-							<label for="formFile" class="form-label">Image de votre bulldog</label>
-							<input class="form-control" type="file" id="formFile">
+					<div class="col-4 BGColor p-4 mb-4" style="border-radius: 50px;">
+						<div class="row">
+							{% if commentary.commentaryPhoto != null %}
+								<div class="col-6">
+									<span style="font-weight:bold">{{commentary.firstName}}</span>
+									<p>{{commentary.commentary}}</p>
+								</div>
+								<div class="col-6">
+									<img class="col-12" style="border-radius: 200px;height:200px" src="{{ asset('asset/img/upload/'~ commentary.commentaryPhoto) }}">
+								</div>
+							{% else %}
+								<div class="col-12">
+									<span style="font-weight:bold">{{commentary.firstName}}</span>
+									<p style="word-wrap:break-word;">{{commentary.commentary}}</p>
+								</div>
+							{% endif %}
 						</div>
 						<div class="stars">
 							<label class="rate">
 								<input type="radio" name="radio1" id="star1" value="star1">
 								<div class="face"></div>
-								<i class="far fa-star star one-star"></i>
+								{% if commentary.rate >= 1 %}
+									<i class="fas fa-star star one-star"></i>
+								{% else %}
+									<i class="far fa-star star one-star"></i>
+								{% endif %}
 							</label>
+
 							<label class="rate">
 								<input type="radio" name="radio1" id="star2" value="star2">
 								<div class="face"></div>
-								<i class="far fa-star star two-star"></i>
-							</label>
+								{% if commentary.rate >= 2 %}
+									<i class="fas fa-star star two-star"></i>
+								{% else %}
+									<i class="far fa-star star two-star"></i>
+								</label>
+							{% endif %}
+
 							<label class="rate">
 								<input type="radio" name="radio1" id="star3" value="star3">
 								<div class="face"></div>
-								<i class="far fa-star star three-star"></i>
-							</label>
+								{% if commentary.rate >= 3 %}
+									<i class="fas fa-star star three-star"></i>
+								{% else %}
+									<i class="far fa-star star three-star"></i>
+								</label>
+							{% endif %}
+
 							<label class="rate">
 								<input type="radio" name="radio1" id="star4" value="star4">
 								<div class="face"></div>
-								<i class="far fa-star star four-star"></i>
-							</label>
+								{% if commentary.rate >= 4 %}
+									<i class="fas fa-star star four-star"></i>
+								{% else %}
+									<i class="far fa-star star four-star"></i>
+								</label>
+							{% endif %}
+
 							<label class="rate">
 								<input type="radio" name="radio1" id="star5" value="star5">
 								<div class="face"></div>
-								<i class="far fa-star star five-star"></i>
-							</label>
+								{% if commentary.rate >= 5 %}
+									<i class="fas fa-star star five-star"></i>
+								{% else %}
+									<i class="far fa-star star five-star"></i>
+								</label>
+							{% endif %}
 						</div>
 					</div>
-					<div class="col-6">
-						<img class="col-12" style="border-radius: 200px;" src="{{ asset('asset/img/dog.png') }}">
+				{% endif %}
+			{% endfor %}
+			<hr>
+			<div class="d-flex justify-content-center">
+				<form class="col-6" method="POST" action="{{ url('golden_book_add') }}" enctype="multipart/form-data">
+					<div class="col-12 BGColor p-4 my-4" style="border-radius: 50px;">
+						<div class="row">
+							<div class="col-12">
+								<label for="name" class="form-label">Nom :</label>
+								<input type="text" name="form[firstName]" class="form-control" id="name">
+								<label for="LastName" class="form-label">Prénom :</label>
+								<input type="text" name="form[lastName]" class="form-control" id="LastName">
+								<label for="userCommentary" class="form-label">Commentaire</label>
+								<textarea class="form-control" name="form[userCommentary]" id="userCommentary" rows="3"></textarea>
+								<div class="mb-3">
+									<label for="formFile" class="form-label">Image de votre bullDog</label>
+									<input class="form-control" name="file" type="file" id="formFile">
+								</div>
+								<div class="row">
+									<div class="form-label col-4">Noter votre ressentis :</div>
+									<div class="col-2">
+										<select id="rate" class="form-select" name="form[rate]" aria-label="Default select example">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+										</select>
+									</div>
+									<div class="form-group text-right offset-4 col-2">
+										<button class="btn btn-success" name="form[submit]" value="1">Envoyer</button>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	</div>
-
-	<script>
-		$(function () {
-
-$(document).on({
-mouseover: function (event) {
-$(this).find('.far').addClass('star-over');
-$(this).prevAll().find('.far').addClass('star-over');
-},
-mouseleave: function (event) {
-$(this).find('.far').removeClass('star-over');
-$(this).prevAll().find('.far').removeClass('star-over');
-}
-}, '.rate');
-
-
-$(document).on('click', '.rate', function () {
-if (!$(this).find('.star').hasClass('rate-active')) {
-$(this).siblings().find('.star').addClass('far').removeClass('fas rate-active');
-$(this).find('.star').addClass('rate-active fas').removeClass('far star-over');
-$(this).prevAll().find('.star').addClass('fas').removeClass('far star-over');
-} else {
-console.log('has');
-}
-});
-
-});
-	</script>
-	{% include "footer.html.twig" %}
-{% endblock %}
+</div>
+{% include "footer.html.twig" %}{% endblock %}

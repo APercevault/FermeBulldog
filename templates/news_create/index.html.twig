@@ -1,0 +1,31 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block body %}
+	{% include "headerAdmin.html.twig" %}
+	<div class="container">
+		<form method="POST" action="{{ url('news_add_create') }}" enctype="multipart/form-data">
+			<h1 class="m-2">Ajouter une actualité</h1>
+			<label for="titleFr" class="form-label">Titre en Français :</label>
+			<input id="titleFr" name="form[titleFr]" type="text" class="form-control">
+
+			<label for="titleEn" class="form-label">Titre en Anglais :</label>
+			<input id="titleEn" name="form[titleEn]" type="text" class="form-control">
+
+			<label for="textFr" class="form-label">Texte en Français :</label>
+			<textarea id="textFr" name="form[textFr]" id="mytextarea" name="mytextarea"></textarea>
+
+			<label for="textEn" class="form-label">Texte en Anglais :</label>
+			<textarea id="textEn" name="form[textEn]" id="mytextarea" name="mytextarea"></textarea>
+
+			<div class="custom-file m-2">
+				<label for="file" class="form-label">Upload une image pour l'actualité :</label>
+				<input type="file" class="form-control" id="file" name="file">
+			</div>
+
+			<div class="form-group text-right m-2">
+				<button class="btn btn-success" name="form[submit]" value="1">Ajouter</button>
+			</div>
+
+		</form>
+	</div>
+{% endblock %}

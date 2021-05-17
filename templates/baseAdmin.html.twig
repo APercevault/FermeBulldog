@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}
+				La ferme du BullDog Exotique
+			{% endblock %}
+		</title>
+		{% block stylesheets %}
+			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+			<link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
+		{% endblock %}
+
+		{% block javascripts %}
+			<script src="https://cdn.tiny.cloud/1/asl42zdidmzi6wsdzcllsc4g7bst2tk6tn82emvzre6z03hn/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+			<script>
+				tinymce.init({selector: 'textarea', plugin: 'a_tinymce_plugin', a_plugin_option: true, a_configuration_option: 400});
+			</script>
+			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+			<script src="https://kit.fontawesome.com/c5e7807384.js" crossorigin="anonymous"></script>
+			<script src="{{ asset('asset/js/javascript.js') }}"></script>
+		{% endblock %}
+	</head>
+
+	<body>
+		<div style="max-width:1920px"> {% block body %}{% endblock %}
+			</div>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+		</body>
+	</html>

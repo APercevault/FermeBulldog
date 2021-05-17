@@ -1,0 +1,103 @@
+{% extends 'baseAdmin.html.twig' %}
+{% block body %}
+	{% include "headerAdmin.html.twig" %}
+	<section class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12">
+					<div class="card">
+						<div class="card-header row">
+							<h3 class="card-title">Liste des chiens</h3>
+							<div class="col-2">
+								<a href="{{ asset('/dogs/create') }}">
+									<button class="btn btn-outline-success text-end">Ajouter un chien</button>
+								</a>
+							</div>
+							<div class="text-end offset-8 col-2">
+								<form method="POST" action="{{ asset('addCategory') }}" enctype="multipart/form-data">
+									<input id="category" name="form[category]" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Entrer une catégorie...">
+									<button class="btn btn-success" name="form[submit]" value="1">Ajouter une catégorie</button>
+								</form>
+							</div>
+						</div>
+						<!-- /.card-header -->
+						<div class="card-body p-0">
+							<div class="d-md-flex">
+								<table class="table table-hover text-nowrap">
+									<thead>
+										<tr>
+											<th>Id</th>
+											<th>Catégorie</th>
+											<th>Nom</th>
+											<th>Description en français</th>
+											<th>Sexe</th>
+											<th>Age</th>
+
+										</tr>
+									</thead>
+									<tbody>
+										{% for dog in dogs %}
+												<tr>
+													<td>{{ dog.id}}
+													</td>
+													<td>
+														<label for="category" class="form-label">Race :
+															{{dog.category.nameCategoryFr}}</label>
+														<select id="category" class="form-select mb-2" name="form[category]" aria-label="Default select example">
+															{% for category in categories %}
+																<option id="category" name="category" value="{{ category.id }}">{{category.nameCategoryFr}}</option>
+															{% endfor %}
+														</select>
+													</td>
+													<td><input id="name" name="form[name]" type="text" class="form-control" id="exampleFormControlInput1" value="{{ dog.name}}"></td>
+													<td>
+														<textarea id="descriptionfr" name="form[descriptionfr]" id="mytextarea" name="mytextarea">
+															{{ dog.descriptionfr}}</textarea>
+													</td>
+													<td>
+														<select id="sex" class="form-select mb-2" name="form[sex]" aria-label="Default select example">
+															<option value="Male">Mâle</option>
+															<option value="Femmelle">Femelle</option>
+														</select>
+													</td>
+													<td><input id="age" name="form[age]" type="number" class="form-control" value="{{dog.age}}"></td>
+												</tr>
+												<tr>
+													<td></td>
+													<td class="text-end">Photo précédente:</td>
+													<td>{{ dog.photo }}</td>
+													<td>
+														<div class="custom-file">
+															<input type="file" class="custom-file-input form-control" id="file" name="file">
+														</div>
+													</td>
+													<td></td>
+													<td>
+														<div class="form-group text-right mb-2">
+															<button class="btn btn-success" name="form[submit]" value="1">Modifier</button>
+															<a href="{{ path('dog_id_delete', {'id': dog.id }) }}">
+																<div class="btn btn-danger" value="2">Supprimer</div>
+															</a>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td style="background-color:rgb(80, 71, 54)"></td>
+													<td style="background-color:rgb(80, 71, 54)"></td>
+													<td style="background-color:rgb(80, 71, 54)"></td>
+													<td style="background-color:rgb(80, 71, 54)"></td>
+													<td style="background-color:rgb(80, 71, 54)"></td>
+													<td style="background-color:rgb(80, 71, 54)"></td>
+												</tr>
+											</form>
+										{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
