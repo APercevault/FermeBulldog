@@ -9,6 +9,9 @@
 DirectoryIndex index.php
 
 <IfModule mod_rewrite.c>
+    AddType x-mapp-php5 .php
+    AddHandler x-mapp-php5 .php
+    
     RewriteEngine On
 
     # Redirect to URI without front controller to prevent duplicate content
