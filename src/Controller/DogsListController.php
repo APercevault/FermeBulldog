@@ -31,7 +31,7 @@ class DogsListController extends AbstractController
     }
 
     /**
-     * @Route("/dogs/{id}/edit", name="dogs_id_edit")
+     * @Route("/dogs/{id}/edit", name="dog_id_edit")
      */
     public function edit(Request $request, CategoryRepository $categoryRepository, Dog $dog, KernelInterface $kernel, EntityManagerInterface $em)
     {

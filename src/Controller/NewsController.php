@@ -29,7 +29,7 @@ class NewsController extends AbstractController
             );
         }
 
-        return $this->render('News/index.html.twig', array(
+        return $this->render('news/index.html.twig', array(
             'news' => $news,
             'form' => $form->createView()
         ));

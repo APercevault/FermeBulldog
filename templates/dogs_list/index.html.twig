@@ -37,6 +37,7 @@
 									</thead>
 									<tbody>
 										{% for dog in dogs %}
+											<form method="POST" action="{{ url('dog_id_edit', {'id':dog.id}) }}" enctype="multipart/form-data">
 												<tr>
 													<td>{{ dog.id}}
 													</td>
@@ -45,7 +46,7 @@
 															{{dog.category.nameCategoryFr}}</label>
 														<select id="category" class="form-select mb-2" name="form[category]" aria-label="Default select example">
 															{% for category in categories %}
-																<option id="category" name="category" value="{{ category.id }}">{{category.nameCategoryFr}}</option>
+																<option value="{{ category.id }}">{{category.nameCategoryFr}}</option>
 															{% endfor %}
 														</select>
 													</td>
@@ -57,7 +58,7 @@
 													<td>
 														<select id="sex" class="form-select mb-2" name="form[sex]" aria-label="Default select example">
 															<option value="Male">Mâle</option>
-															<option value="Femmelle">Femelle</option>
+															<option value="Femelle">Femelle</option>
 														</select>
 													</td>
 													<td><input id="age" name="form[age]" type="number" class="form-control" value="{{dog.age}}"></td>
@@ -74,7 +75,9 @@
 													<td></td>
 													<td>
 														<div class="form-group text-right mb-2">
-															<button class="btn btn-success" name="form[submit]" value="1">Modifier</button>
+															<a href="{{ path('dog_id_edit', {'id': dog.id }) }}">
+																<button class="btn btn-success" name="form[submit]" value="1">Modifier</button>
+															</a>
 															<a href="{{ path('dog_id_delete', {'id': dog.id }) }}">
 																<div class="btn btn-danger" value="2">Supprimer</div>
 															</a>

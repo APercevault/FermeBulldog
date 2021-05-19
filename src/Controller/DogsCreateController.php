@@ -29,7 +29,7 @@ class DogsCreateController extends AbstractController
     /**
      * @Route("/dogs/create/add", name="dogs_add_create")
      */
-    public function edit(Request $request, CategoryRepository $categoryRepository, KernelInterface $kernel, EntityManagerInterface $em)
+    public function add(Request $request, CategoryRepository $categoryRepository, KernelInterface $kernel, EntityManagerInterface $em)
     {
         
         $formData = $request->request->get('form');

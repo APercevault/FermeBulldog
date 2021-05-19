@@ -29,9 +29,8 @@ class DogsController extends AbstractController
     {
 
         $formData = $request->request->get('form');
-
-        if ($formData['submit']==1) {
-            $dogs = $dogRepository->findBy(['id' => $formData['category']]);
+        if ($formData['submit']) {
+            $dogs = $dogRepository->findBy(['Category' => $formData['category']]);
         } else {
             $dogs = $dogRepository->findAll();
         }
